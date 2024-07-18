@@ -1,4 +1,9 @@
 import type { PluginOptions as GatsbyDefaultPluginOptions, IPluginRefOptions } from "gatsby"
+import { NODE_TYPES } from "./constants"
+
+export type NodeBuilderInput = 
+  | { type: typeof NODE_TYPES.Author; data: IAuthorInput }
+  | { type: typeof NODE_TYPES.Post; data: IPostInput }
 
 export interface IAuthorInput {
   id: number
@@ -21,8 +26,7 @@ export interface IPostInput {
 }
 
 interface IPluginOptionsKeys {
-  // TODO: Set your plugin options here
-  [key: string]: any
+  endpoint: string
 }
 
 /**
